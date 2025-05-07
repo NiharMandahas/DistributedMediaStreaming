@@ -31,17 +31,23 @@ public class SelfController {
         System.out.println("Controller method called. Searching for: " + fileName);
         System.out.println("Search directory: " + searchDirectory);
         try {
-            Path filePath = Paths.get(searchDirectory, fileName);
-            System.out.println("Full path being checked: " + filePath.toString());
+//            Path filePath = Paths.get(searchDirectory, fileName);
+            String storagePath= System.getProperty("user.dir")+"/storage/";
+            System.out.println("Full path being checked: " + storagePath.toString());
 
             // Check if file exists in the specified directory
-            if (Files.exists(filePath)) {
-                System.out.println("File found!");
-                return "yes";
-            } else {
-                System.out.println("File not found!");
-                return "no";
-            }
+//            if (Files.exists(storagePath)) {
+//                System.out.println("File found!");
+//                return "yes";
+//            } else {
+//                System.out.println("File not found!");
+//                return "no";
+//            }
+
+            java.io.File file=new java.io.File(storagePath+fileName);
+            boolean exists=file.exists() && file.isFile();
+            System.out.println("Peer check for file: "+storagePath+fileName+" - Exists: "+exists);
+            return exists==true?"yes":"no";
         } catch (Exception e) {
             // Log the exception
             System.err.println("Error while checking file: " + e.getMessage());
