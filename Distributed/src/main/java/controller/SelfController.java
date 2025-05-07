@@ -31,18 +31,10 @@ public class SelfController {
         System.out.println("Controller method called. Searching for: " + fileName);
         System.out.println("Search directory: " + searchDirectory);
         try {
-//            Path filePath = Paths.get(searchDirectory, fileName);
             String storagePath= System.getProperty("user.dir")+"/storage/";
             System.out.println("Full path being checked: " + storagePath.toString());
 
-            // Check if file exists in the specified directory
-//            if (Files.exists(storagePath)) {
-//                System.out.println("File found!");
-//                return "yes";
-//            } else {
-//                System.out.println("File not found!");
-//                return "no";
-//            }
+
 
             java.io.File file=new java.io.File(storagePath+fileName);
             boolean exists=file.exists() && file.isFile();
