@@ -12,4 +12,4 @@ public class DistributedApplication {
 		SpringApplication.run(DistributedApplication.class, args);
 	}
 
-}
+}  
